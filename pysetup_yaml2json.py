@@ -41,7 +41,7 @@ class yaml2json(Command):
 		pass
 
 	def run(self):
-		files = get_resources_dests(".", [('', glob.strip(), '') for glob in self.files.strip().split("\n")])
+		files = get_resources_dests(".", [('', glob.strip(), '') for glob in self.files.strip().split("\n")]) if self.files else []
 		for file in files:
 			recode(file, file.replace(".yaml", ".json"))
 
