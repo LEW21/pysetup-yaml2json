@@ -22,10 +22,15 @@ def monkey():
 monkey()
 
 def recode(ya, js):
-	if isinstance(ya, basestring):
+	try:
+		string = basestring # Python 2
+	except:
+		string = str # Python 3
+
+	if isinstance(ya, string):
 		ya = open(ya)
 
-	if isinstance(js, basestring):
+	if isinstance(js, string):
 		js = open(js, "w")
 
 	json.dump(yaml.load(ya), js)
